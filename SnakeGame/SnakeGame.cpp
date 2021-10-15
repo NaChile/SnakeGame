@@ -1,4 +1,6 @@
 #include "SnakeGame.h"
+#include <random>
+#include <ctime>
 
 using namespace System;
 using namespace System::Windows::Forms;
@@ -11,6 +13,8 @@ void main(array<String^>^ args)
 
 	SnakeGame::SnakeGame form;
 	Application::Run(% form);
+
+	srand(time(NULL));
 }
 
 struct Vector2 {
@@ -21,12 +25,13 @@ Vector2 SnakeDir;
 Vector2 FruitPos;
 Vector2 GameArea;
 
+
 SnakeGame::SnakeGame::SnakeGame(void)
 {
 	InitializeComponent();
 
-	GameArea.X = 525;
-	GameArea.Y = 525;
+	GameArea.X = 500;
+	GameArea.Y = 500;
 
 	fLaunch = true;
 	NewGame();
@@ -34,21 +39,27 @@ SnakeGame::SnakeGame::SnakeGame(void)
 
 void SnakeGame::SnakeGame::GenerateFruit()
 {
-	Random^ rand = gcnew Random();
-	FruitPos.X = rand->Next(25, GameArea.X);
-	FruitPos.Y = rand->Next(50, GameArea.Y);
-
 	
+
+	FruitPos.X =25 + rand()%GameArea.X;
+	FruitPos.Y =50 + rand()%GameArea.Y;
+
 	int tempX = FruitPos.X % step;
 	FruitPos.X -= tempX;
 	int tempY = FruitPos.Y % step;
-	FruitPos.Y-= tempY;
-
+	FruitPos.Y -= tempY;
+	
 	for (int i = 0; i <= score; i++)
 	{
 		if (FruitPos.X == Snake[i]->Location.X && FruitPos.Y == Snake[i]->Location.Y)
+		{
 			GenerateFruit();
+		}
 	}
+
+	
+
+
 
 	fruit->Location = Point(FruitPos.X, FruitPos.Y);
 
@@ -63,7 +74,7 @@ void SnakeGame::SnakeGame::Eat()
 		score++;
 		Snake[score] = gcnew PictureBox();
 		Snake[score]->Location=Point(Snake[score-1]->Location.X-SnakeDir.X*step, Snake[score - 1]->Location.Y - SnakeDir.Y * step) ;
-		Snake[score]->BackColor = Color::LightGreen;
+		Snake[score]->BackColor = CurrentSnakeColor->BackColor;
 		Snake[score]->Width = step;
 		Snake[score]->Height = step;
 
@@ -104,18 +115,20 @@ void SnakeGame::SnakeGame::NewGame()
 	Snake = gcnew array<PictureBox^, 1 >(400);
 	Snake[0] = gcnew PictureBox;
 	Snake[0]->Location = Point(50, 100);
-	Snake[0]->BackColor = Color::Green;
+	Snake[0]->BackColor = CurrentSnakeColor->BackColor;
 	Snake[0]->Width = step;
 	Snake[0]->Height = step;
+
+	Snake[0]->TabIndex = 10;
 
 	this->Controls->Add(Snake[0]);
 
 
 	fruit = gcnew PictureBox;
-	fruit->BackColor = Color::Red;
+	fruit->BackColor = CurrentFruitColor->BackColor;
 	fruit->Width = step;
 	fruit->Height = step;
-	GenerateFruit();
+		GenerateFruit();
 
 	
 	timer->Interval = updateInterval;
@@ -142,16 +155,22 @@ void SnakeGame::SnakeGame::EatYourself()
 }
 void SnakeGame::SnakeGame::CheckBorders()
 {
-	/*if (Snake[0]->Location.X <= LeftBorder->Location.X || Snake[0]->Location.X >= RightBorder->Location.X || Snake[0]->Location.Y <= UpperBorder->Location.Y || Snake[0]->Location.Y >= LowerBorder->Location.Y)
-		GameOver();*/
-	if (Snake[0]->Location.X <= LeftBorder->Location.X)
-		Snake[0]->Location = Point(500, Snake[0]->Location.Y);
-	if (Snake[0]->Location.X >= RightBorder->Location.X)
-		Snake[0]->Location = Point(25, Snake[0]->Location.Y);
-	if (Snake[0]->Location.Y <= UpperBorder->Location.Y)
-		Snake[0]->Location = Point(Snake[0]->Location.X, 525);
-	if (Snake[0]->Location.Y >= LowerBorder->Location.Y)
-		Snake[0]->Location = Point(Snake[0]->Location.X, 50);
+	if (BorderCheck->Checked)
+	{
+		if (Snake[0]->Location.X <= LeftBorder->Location.X || Snake[0]->Location.X >= RightBorder->Location.X || Snake[0]->Location.Y <= UpperBorder->Location.Y || Snake[0]->Location.Y >= LowerBorder->Location.Y)
+			GameOver();
+	}
+	else
+	{
+		if (Snake[0]->Location.X <= LeftBorder->Location.X)
+			Snake[0]->Location = Point(500, Snake[0]->Location.Y);
+		if (Snake[0]->Location.X >= RightBorder->Location.X)
+			Snake[0]->Location = Point(25, Snake[0]->Location.Y);
+		if (Snake[0]->Location.Y <= UpperBorder->Location.Y)
+			Snake[0]->Location = Point(Snake[0]->Location.X, 525);
+		if (Snake[0]->Location.Y >= LowerBorder->Location.Y)
+			Snake[0]->Location = Point(Snake[0]->Location.X, 50);
+	}
 }
 
 System::Void SnakeGame::SnakeGame::StartNewGame(System::Object^ sender, System::EventArgs^ e)
@@ -181,6 +200,7 @@ System::Void SnakeGame::SnakeGame::Key_down(System::Object^ sender, System::Wind
 	if (SnakeDir.X != -1 && e->KeyCode.ToString() == "Right") {
 		SnakeDir.X = 1;
 		SnakeDir.Y = 0;
+		
 	}
 	else if(SnakeDir.X != 1 && e->KeyCode.ToString() == "Left") {
 		SnakeDir.X = -1;
@@ -208,7 +228,6 @@ System::Void SnakeGame::SnakeGame::Key_down(System::Object^ sender, System::Wind
 		}
 	}
 	
-	
 }
 
 
@@ -232,6 +251,64 @@ System::Void SnakeGame::SnakeGame::Update(System::Object^ sender, System::EventA
 	{
 		timer->Stop();
 	}
-
+	
 }
+
+System::Void SnakeGame::SnakeGame::ChangeColor(System::Object^ sender, System::EventArgs^ e)
+{
+	Button^ Colors = safe_cast<Button^>(sender);
+	CurrentSnakeColor->BackColor = Colors->BackColor;
+	for (int i = 0; i <= score; i++)
+		Snake[i]->BackColor = CurrentSnakeColor->BackColor;
+}
+
+System::Void SnakeGame::SnakeGame::Settings(System::Object^ sender, System::EventArgs^ e)
+{
+	if (!SettingsBox->Visible)
+	{
+		play = false;
+		SettingsBox->Enabled = true;
+		SettingsBox->Visible = true;
+	}
+	else
+	{
+		play = true;
+		timer->Start();
+
+		SettingsBox->Enabled = false;
+		SettingsBox->Visible = false;
+	}
+}
+
+System::Void SnakeGame::SnakeGame::ChangeBackColor(System::Object^ sender, System::EventArgs^ e)
+{
+	Button^ Colors = safe_cast<Button^>(sender);
+	CurrentBackColor->BackColor = Colors->BackColor;
+	BackColor = Colors->BackColor;
+}
+
+System::Void SnakeGame::SnakeGame::ChangeFruitColor(System::Object^ sender, System::EventArgs^ e)
+{
+	Button^ Colors = safe_cast<Button^>(sender);
+	CurrentFruitColor->BackColor = Colors->BackColor;
+	int TempPosx, TempPosy;
+	TempPosx = FruitPos.X;
+	TempPosy = FruitPos.Y;
+	this->Controls->Remove(fruit);
+	fruit = gcnew PictureBox;
+	fruit->BackColor = CurrentFruitColor->BackColor;
+	fruit->Width = step;
+	fruit->Height = step;
+
+	fruit->Location = Point(TempPosx, TempPosy);
+	this->Controls->Add(fruit);
+}
+
+System::Void SnakeGame::SnakeGame::SpeedChange(System::Object^ sender, System::EventArgs^ e)
+{
+	Button^ Speed = safe_cast<Button^>(sender);
+	updateInterval = Convert::ToInt32(Speed->Text);
+	timer->Interval = updateInterval;
+}
+
 
