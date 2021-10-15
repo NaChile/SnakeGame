@@ -338,7 +338,7 @@ namespace SnakeGame {
 	private: int score = 0;
 	private: bool fLaunch;
 	private: int tick = 0;
-
+	
 	//Функции игры
 	private: void Eat();
 	private: void GenerateFruit();

@@ -1,4 +1,6 @@
 #include "SnakeGame.h"
+#include <random>
+#include <ctime>
 
 using namespace System;
 using namespace System::Windows::Forms;
@@ -11,6 +13,8 @@ void main(array<String^>^ args)
 
 	SnakeGame::SnakeGame form;
 	Application::Run(% form);
+
+	srand(time(NULL));
 }
 
 struct Vector2 {
@@ -21,12 +25,13 @@ Vector2 SnakeDir;
 Vector2 FruitPos;
 Vector2 GameArea;
 
+
 SnakeGame::SnakeGame::SnakeGame(void)
 {
 	InitializeComponent();
 
-	GameArea.X = 525;
-	GameArea.Y = 525;
+	GameArea.X = 500;
+	GameArea.Y = 500;
 
 	fLaunch = true;
 	NewGame();
@@ -34,21 +39,27 @@ SnakeGame::SnakeGame::SnakeGame(void)
 
 void SnakeGame::SnakeGame::GenerateFruit()
 {
-	Random^ rand = gcnew Random();
-	FruitPos.X = rand->Next(25, GameArea.X);
-	FruitPos.Y = rand->Next(50, GameArea.Y);
-
 	
+
+	FruitPos.X =25 + rand()%GameArea.X;
+	FruitPos.Y =50 + rand()%GameArea.Y;
+
 	int tempX = FruitPos.X % step;
 	FruitPos.X -= tempX;
 	int tempY = FruitPos.Y % step;
-	FruitPos.Y-= tempY;
-
+	FruitPos.Y -= tempY;
+	
 	for (int i = 0; i <= score; i++)
 	{
 		if (FruitPos.X == Snake[i]->Location.X && FruitPos.Y == Snake[i]->Location.Y)
+		{
 			GenerateFruit();
+		}
 	}
+
+	
+
+
 
 	fruit->Location = Point(FruitPos.X, FruitPos.Y);
 
