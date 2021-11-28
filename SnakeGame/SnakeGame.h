@@ -58,21 +58,21 @@ namespace SnakeGame {
 	private: System::Windows::Forms::ToolStripMenuItem^ настройкиToolStripMenuItem;
 	private: System::Windows::Forms::GroupBox^ SettingsBox;
 
-	private: System::Windows::Forms::Button^ OrangeRed;
 
-	private: System::Windows::Forms::Button^ SKDarkViolet;
 
-	private: System::Windows::Forms::Button^ SKDodgerBlue;
 
-	private: System::Windows::Forms::Button^ SKGreen;
 
-	private: System::Windows::Forms::Button^ SKRed;
 
-	private: System::Windows::Forms::Button^ SKSlateBlue;
 
-	private: System::Windows::Forms::Button^ SKAqua;
 
-	private: System::Windows::Forms::Button^ SKLightGreen;
+
+
+
+
+
+
+
+
 	private: System::Windows::Forms::PictureBox^ CurrentSnakeColor;
 
 
@@ -82,25 +82,25 @@ namespace SnakeGame {
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::PictureBox^ CurrentBackColor;
 
-	private: System::Windows::Forms::Button^ button1;
-	private: System::Windows::Forms::Button^ button2;
-	private: System::Windows::Forms::Button^ button3;
-	private: System::Windows::Forms::Button^ button4;
-	private: System::Windows::Forms::Button^ button5;
-	private: System::Windows::Forms::Button^ button6;
-	private: System::Windows::Forms::Button^ button7;
-	private: System::Windows::Forms::Button^ button8;
+
+
+
+
+
+
+
+
 	private: System::Windows::Forms::Label^ label4;
 	private: System::Windows::Forms::PictureBox^ CurrentFruitColor;
 
-	private: System::Windows::Forms::Button^ button9;
-	private: System::Windows::Forms::Button^ button10;
-	private: System::Windows::Forms::Button^ button11;
-	private: System::Windows::Forms::Button^ button12;
-	private: System::Windows::Forms::Button^ button13;
-	private: System::Windows::Forms::Button^ button14;
-	private: System::Windows::Forms::Button^ button15;
-	private: System::Windows::Forms::Button^ button16;
+
+
+
+
+
+
+
+
 	private: System::Windows::Forms::Label^ label5;
 	private: System::Windows::Forms::PictureBox^ pictureBox12;
 	private: System::Windows::Forms::PictureBox^ pictureBox10;
@@ -114,6 +114,7 @@ namespace SnakeGame {
 
 	private: System::Windows::Forms::Button^ LowSpeed;
 	private: System::Windows::Forms::CheckBox^ BorderCheck;
+private: System::Windows::Forms::ColorDialog^ colorDialog1;
 
 
 
@@ -168,6 +169,7 @@ namespace SnakeGame {
 			this->pictureBox6 = (gcnew System::Windows::Forms::PictureBox());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->SettingsBox = (gcnew System::Windows::Forms::GroupBox());
+			this->BorderCheck = (gcnew System::Windows::Forms::CheckBox());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->pictureBox12 = (gcnew System::Windows::Forms::PictureBox());
 			this->pictureBox10 = (gcnew System::Windows::Forms::PictureBox());
@@ -180,35 +182,11 @@ namespace SnakeGame {
 			this->LowSpeed = (gcnew System::Windows::Forms::Button());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->CurrentFruitColor = (gcnew System::Windows::Forms::PictureBox());
-			this->button9 = (gcnew System::Windows::Forms::Button());
-			this->button10 = (gcnew System::Windows::Forms::Button());
-			this->button11 = (gcnew System::Windows::Forms::Button());
-			this->button12 = (gcnew System::Windows::Forms::Button());
-			this->button13 = (gcnew System::Windows::Forms::Button());
-			this->button14 = (gcnew System::Windows::Forms::Button());
-			this->button15 = (gcnew System::Windows::Forms::Button());
-			this->button16 = (gcnew System::Windows::Forms::Button());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->CurrentBackColor = (gcnew System::Windows::Forms::PictureBox());
-			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->button2 = (gcnew System::Windows::Forms::Button());
-			this->button3 = (gcnew System::Windows::Forms::Button());
-			this->button4 = (gcnew System::Windows::Forms::Button());
-			this->button5 = (gcnew System::Windows::Forms::Button());
-			this->button6 = (gcnew System::Windows::Forms::Button());
-			this->button7 = (gcnew System::Windows::Forms::Button());
-			this->button8 = (gcnew System::Windows::Forms::Button());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->CurrentSnakeColor = (gcnew System::Windows::Forms::PictureBox());
-			this->OrangeRed = (gcnew System::Windows::Forms::Button());
-			this->SKDarkViolet = (gcnew System::Windows::Forms::Button());
-			this->SKDodgerBlue = (gcnew System::Windows::Forms::Button());
-			this->SKGreen = (gcnew System::Windows::Forms::Button());
-			this->SKRed = (gcnew System::Windows::Forms::Button());
-			this->SKSlateBlue = (gcnew System::Windows::Forms::Button());
-			this->SKAqua = (gcnew System::Windows::Forms::Button());
-			this->SKLightGreen = (gcnew System::Windows::Forms::Button());
-			this->BorderCheck = (gcnew System::Windows::Forms::CheckBox());
+			this->colorDialog1 = (gcnew System::Windows::Forms::ColorDialog());
 			this->menuStrip1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->LeftBorder))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->RightBorder))->BeginInit();
@@ -440,47 +418,33 @@ namespace SnakeGame {
 			this->SettingsBox->Controls->Add(this->LowSpeed);
 			this->SettingsBox->Controls->Add(this->label4);
 			this->SettingsBox->Controls->Add(this->CurrentFruitColor);
-			this->SettingsBox->Controls->Add(this->button9);
-			this->SettingsBox->Controls->Add(this->button10);
-			this->SettingsBox->Controls->Add(this->button11);
-			this->SettingsBox->Controls->Add(this->button12);
-			this->SettingsBox->Controls->Add(this->button13);
-			this->SettingsBox->Controls->Add(this->button14);
-			this->SettingsBox->Controls->Add(this->button15);
-			this->SettingsBox->Controls->Add(this->button16);
 			this->SettingsBox->Controls->Add(this->label3);
 			this->SettingsBox->Controls->Add(this->CurrentBackColor);
-			this->SettingsBox->Controls->Add(this->button1);
-			this->SettingsBox->Controls->Add(this->button2);
-			this->SettingsBox->Controls->Add(this->button3);
-			this->SettingsBox->Controls->Add(this->button4);
-			this->SettingsBox->Controls->Add(this->button5);
-			this->SettingsBox->Controls->Add(this->button6);
-			this->SettingsBox->Controls->Add(this->button7);
-			this->SettingsBox->Controls->Add(this->button8);
 			this->SettingsBox->Controls->Add(this->label2);
 			this->SettingsBox->Controls->Add(this->CurrentSnakeColor);
-			this->SettingsBox->Controls->Add(this->OrangeRed);
-			this->SettingsBox->Controls->Add(this->SKDarkViolet);
-			this->SettingsBox->Controls->Add(this->SKDodgerBlue);
-			this->SettingsBox->Controls->Add(this->SKGreen);
-			this->SettingsBox->Controls->Add(this->SKRed);
-			this->SettingsBox->Controls->Add(this->SKSlateBlue);
-			this->SettingsBox->Controls->Add(this->SKAqua);
-			this->SettingsBox->Controls->Add(this->SKLightGreen);
 			this->SettingsBox->Enabled = false;
-			this->SettingsBox->Location = System::Drawing::Point(62, 136);
+			this->SettingsBox->Location = System::Drawing::Point(97, 143);
 			this->SettingsBox->Name = L"SettingsBox";
-			this->SettingsBox->Size = System::Drawing::Size(422, 314);
+			this->SettingsBox->Size = System::Drawing::Size(345, 279);
 			this->SettingsBox->TabIndex = 9;
 			this->SettingsBox->TabStop = false;
 			this->SettingsBox->Text = L"Настройки";
 			this->SettingsBox->Visible = false;
 			// 
+			// BorderCheck
+			// 
+			this->BorderCheck->AutoSize = true;
+			this->BorderCheck->Location = System::Drawing::Point(62, 247);
+			this->BorderCheck->Name = L"BorderCheck";
+			this->BorderCheck->Size = System::Drawing::Size(235, 17);
+			this->BorderCheck->TabIndex = 41;
+			this->BorderCheck->Text = L"Выключить перемещение через границы";
+			this->BorderCheck->UseVisualStyleBackColor = true;
+			// 
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(160, 191);
+			this->label5->Location = System::Drawing::Point(125, 152);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(96, 13);
 			this->label5->TabIndex = 40;
@@ -490,7 +454,7 @@ namespace SnakeGame {
 			// 
 			this->pictureBox12->BackColor = System::Drawing::Color::DarkRed;
 			this->pictureBox12->Enabled = false;
-			this->pictureBox12->Location = System::Drawing::Point(344, 225);
+			this->pictureBox12->Location = System::Drawing::Point(274, 186);
 			this->pictureBox12->Name = L"pictureBox12";
 			this->pictureBox12->Size = System::Drawing::Size(25, 25);
 			this->pictureBox12->TabIndex = 39;
@@ -500,7 +464,7 @@ namespace SnakeGame {
 			// 
 			this->pictureBox10->BackColor = System::Drawing::Color::Firebrick;
 			this->pictureBox10->Enabled = false;
-			this->pictureBox10->Location = System::Drawing::Point(332, 225);
+			this->pictureBox10->Location = System::Drawing::Point(262, 186);
 			this->pictureBox10->Name = L"pictureBox10";
 			this->pictureBox10->Size = System::Drawing::Size(25, 25);
 			this->pictureBox10->TabIndex = 37;
@@ -510,7 +474,7 @@ namespace SnakeGame {
 			// 
 			this->pictureBox11->BackColor = System::Drawing::Color::IndianRed;
 			this->pictureBox11->Enabled = false;
-			this->pictureBox11->Location = System::Drawing::Point(321, 225);
+			this->pictureBox11->Location = System::Drawing::Point(251, 186);
 			this->pictureBox11->Name = L"pictureBox11";
 			this->pictureBox11->Size = System::Drawing::Size(25, 25);
 			this->pictureBox11->TabIndex = 38;
@@ -520,7 +484,7 @@ namespace SnakeGame {
 			// 
 			this->pictureBox8->BackColor = System::Drawing::Color::Green;
 			this->pictureBox8->Enabled = false;
-			this->pictureBox8->Location = System::Drawing::Point(203, 225);
+			this->pictureBox8->Location = System::Drawing::Point(168, 186);
 			this->pictureBox8->Name = L"pictureBox8";
 			this->pictureBox8->Size = System::Drawing::Size(25, 25);
 			this->pictureBox8->TabIndex = 35;
@@ -530,7 +494,7 @@ namespace SnakeGame {
 			// 
 			this->pictureBox9->BackColor = System::Drawing::Color::ForestGreen;
 			this->pictureBox9->Enabled = false;
-			this->pictureBox9->Location = System::Drawing::Point(190, 225);
+			this->pictureBox9->Location = System::Drawing::Point(155, 186);
 			this->pictureBox9->Name = L"pictureBox9";
 			this->pictureBox9->Size = System::Drawing::Size(25, 25);
 			this->pictureBox9->TabIndex = 36;
@@ -540,7 +504,7 @@ namespace SnakeGame {
 			// 
 			this->pictureBox7->BackColor = System::Drawing::Color::DeepSkyBlue;
 			this->pictureBox7->Enabled = false;
-			this->pictureBox7->Location = System::Drawing::Point(61, 225);
+			this->pictureBox7->Location = System::Drawing::Point(59, 186);
 			this->pictureBox7->Name = L"pictureBox7";
 			this->pictureBox7->Size = System::Drawing::Size(25, 25);
 			this->pictureBox7->TabIndex = 34;
@@ -548,7 +512,7 @@ namespace SnakeGame {
 			// 
 			// HighSpeed
 			// 
-			this->HighSpeed->Location = System::Drawing::Point(297, 213);
+			this->HighSpeed->Location = System::Drawing::Point(227, 174);
 			this->HighSpeed->Name = L"HighSpeed";
 			this->HighSpeed->Size = System::Drawing::Size(96, 49);
 			this->HighSpeed->TabIndex = 33;
@@ -558,7 +522,7 @@ namespace SnakeGame {
 			// 
 			// MedSpeed
 			// 
-			this->MedSpeed->Location = System::Drawing::Point(160, 213);
+			this->MedSpeed->Location = System::Drawing::Point(125, 174);
 			this->MedSpeed->Name = L"MedSpeed";
 			this->MedSpeed->Size = System::Drawing::Size(96, 49);
 			this->MedSpeed->TabIndex = 32;
@@ -568,7 +532,7 @@ namespace SnakeGame {
 			// 
 			// LowSpeed
 			// 
-			this->LowSpeed->Location = System::Drawing::Point(25, 213);
+			this->LowSpeed->Location = System::Drawing::Point(23, 174);
 			this->LowSpeed->Name = L"LowSpeed";
 			this->LowSpeed->Size = System::Drawing::Size(96, 49);
 			this->LowSpeed->TabIndex = 31;
@@ -579,7 +543,7 @@ namespace SnakeGame {
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(307, 50);
+			this->label4->Location = System::Drawing::Point(234, 50);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(77, 13);
 			this->label4->TabIndex = 30;
@@ -588,97 +552,17 @@ namespace SnakeGame {
 			// CurrentFruitColor
 			// 
 			this->CurrentFruitColor->BackColor = System::Drawing::Color::Red;
-			this->CurrentFruitColor->Location = System::Drawing::Point(320, 71);
+			this->CurrentFruitColor->Location = System::Drawing::Point(247, 71);
 			this->CurrentFruitColor->Name = L"CurrentFruitColor";
 			this->CurrentFruitColor->Size = System::Drawing::Size(49, 49);
 			this->CurrentFruitColor->TabIndex = 29;
 			this->CurrentFruitColor->TabStop = false;
-			// 
-			// button9
-			// 
-			this->button9->BackColor = System::Drawing::Color::OliveDrab;
-			this->button9->Location = System::Drawing::Point(368, 150);
-			this->button9->Name = L"button9";
-			this->button9->Size = System::Drawing::Size(25, 25);
-			this->button9->TabIndex = 28;
-			this->button9->UseVisualStyleBackColor = false;
-			this->button9->Click += gcnew System::EventHandler(this, &SnakeGame::ChangeFruitColor);
-			// 
-			// button10
-			// 
-			this->button10->BackColor = System::Drawing::Color::DodgerBlue;
-			this->button10->Location = System::Drawing::Point(344, 150);
-			this->button10->Name = L"button10";
-			this->button10->Size = System::Drawing::Size(25, 25);
-			this->button10->TabIndex = 27;
-			this->button10->UseVisualStyleBackColor = false;
-			this->button10->Click += gcnew System::EventHandler(this, &SnakeGame::ChangeFruitColor);
-			// 
-			// button11
-			// 
-			this->button11->BackColor = System::Drawing::Color::Goldenrod;
-			this->button11->Location = System::Drawing::Point(320, 150);
-			this->button11->Name = L"button11";
-			this->button11->Size = System::Drawing::Size(25, 25);
-			this->button11->TabIndex = 26;
-			this->button11->UseVisualStyleBackColor = false;
-			this->button11->Click += gcnew System::EventHandler(this, &SnakeGame::ChangeFruitColor);
-			// 
-			// button12
-			// 
-			this->button12->BackColor = System::Drawing::Color::Crimson;
-			this->button12->Location = System::Drawing::Point(297, 150);
-			this->button12->Name = L"button12";
-			this->button12->Size = System::Drawing::Size(25, 25);
-			this->button12->TabIndex = 25;
-			this->button12->UseVisualStyleBackColor = false;
-			this->button12->Click += gcnew System::EventHandler(this, &SnakeGame::ChangeFruitColor);
-			// 
-			// button13
-			// 
-			this->button13->BackColor = System::Drawing::Color::SeaGreen;
-			this->button13->Location = System::Drawing::Point(368, 126);
-			this->button13->Name = L"button13";
-			this->button13->Size = System::Drawing::Size(25, 25);
-			this->button13->TabIndex = 24;
-			this->button13->UseVisualStyleBackColor = false;
-			this->button13->Click += gcnew System::EventHandler(this, &SnakeGame::ChangeFruitColor);
-			// 
-			// button14
-			// 
-			this->button14->BackColor = System::Drawing::Color::Blue;
-			this->button14->ForeColor = System::Drawing::SystemColors::ControlText;
-			this->button14->Location = System::Drawing::Point(344, 126);
-			this->button14->Name = L"button14";
-			this->button14->Size = System::Drawing::Size(25, 25);
-			this->button14->TabIndex = 23;
-			this->button14->UseVisualStyleBackColor = false;
-			this->button14->Click += gcnew System::EventHandler(this, &SnakeGame::ChangeFruitColor);
-			// 
-			// button15
-			// 
-			this->button15->BackColor = System::Drawing::Color::Yellow;
-			this->button15->Location = System::Drawing::Point(320, 126);
-			this->button15->Name = L"button15";
-			this->button15->Size = System::Drawing::Size(25, 25);
-			this->button15->TabIndex = 22;
-			this->button15->UseVisualStyleBackColor = false;
-			this->button15->Click += gcnew System::EventHandler(this, &SnakeGame::ChangeFruitColor);
-			// 
-			// button16
-			// 
-			this->button16->BackColor = System::Drawing::Color::Red;
-			this->button16->Location = System::Drawing::Point(297, 126);
-			this->button16->Name = L"button16";
-			this->button16->Size = System::Drawing::Size(25, 25);
-			this->button16->TabIndex = 21;
-			this->button16->UseVisualStyleBackColor = false;
-			this->button16->Click += gcnew System::EventHandler(this, &SnakeGame::ChangeFruitColor);
+			this->CurrentFruitColor->Click += gcnew System::EventHandler(this, &SnakeGame::ChangeFruitColor);
 			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(177, 50);
+			this->label3->Location = System::Drawing::Point(141, 50);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(61, 13);
 			this->label3->TabIndex = 20;
@@ -687,97 +571,17 @@ namespace SnakeGame {
 			// CurrentBackColor
 			// 
 			this->CurrentBackColor->BackColor = System::Drawing::SystemColors::Control;
-			this->CurrentBackColor->Location = System::Drawing::Point(183, 71);
+			this->CurrentBackColor->Location = System::Drawing::Point(147, 71);
 			this->CurrentBackColor->Name = L"CurrentBackColor";
 			this->CurrentBackColor->Size = System::Drawing::Size(49, 49);
 			this->CurrentBackColor->TabIndex = 19;
 			this->CurrentBackColor->TabStop = false;
-			// 
-			// button1
-			// 
-			this->button1->BackColor = System::Drawing::Color::DarkSeaGreen;
-			this->button1->Location = System::Drawing::Point(231, 150);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(25, 25);
-			this->button1->TabIndex = 18;
-			this->button1->UseVisualStyleBackColor = false;
-			this->button1->Click += gcnew System::EventHandler(this, &SnakeGame::ChangeBackColor);
-			// 
-			// button2
-			// 
-			this->button2->BackColor = System::Drawing::Color::Thistle;
-			this->button2->Location = System::Drawing::Point(207, 150);
-			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(25, 25);
-			this->button2->TabIndex = 17;
-			this->button2->UseVisualStyleBackColor = false;
-			this->button2->Click += gcnew System::EventHandler(this, &SnakeGame::ChangeBackColor);
-			// 
-			// button3
-			// 
-			this->button3->BackColor = System::Drawing::Color::CornflowerBlue;
-			this->button3->Location = System::Drawing::Point(183, 150);
-			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(25, 25);
-			this->button3->TabIndex = 16;
-			this->button3->UseVisualStyleBackColor = false;
-			this->button3->Click += gcnew System::EventHandler(this, &SnakeGame::ChangeBackColor);
-			// 
-			// button4
-			// 
-			this->button4->BackColor = System::Drawing::Color::NavajoWhite;
-			this->button4->Location = System::Drawing::Point(160, 150);
-			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(25, 25);
-			this->button4->TabIndex = 15;
-			this->button4->UseVisualStyleBackColor = false;
-			this->button4->Click += gcnew System::EventHandler(this, &SnakeGame::ChangeBackColor);
-			// 
-			// button5
-			// 
-			this->button5->BackColor = System::Drawing::Color::DarkGray;
-			this->button5->Location = System::Drawing::Point(231, 126);
-			this->button5->Name = L"button5";
-			this->button5->Size = System::Drawing::Size(25, 25);
-			this->button5->TabIndex = 14;
-			this->button5->UseVisualStyleBackColor = false;
-			this->button5->Click += gcnew System::EventHandler(this, &SnakeGame::ChangeBackColor);
-			// 
-			// button6
-			// 
-			this->button6->BackColor = System::Drawing::Color::Azure;
-			this->button6->ForeColor = System::Drawing::SystemColors::ControlText;
-			this->button6->Location = System::Drawing::Point(207, 126);
-			this->button6->Name = L"button6";
-			this->button6->Size = System::Drawing::Size(25, 25);
-			this->button6->TabIndex = 13;
-			this->button6->UseVisualStyleBackColor = false;
-			this->button6->Click += gcnew System::EventHandler(this, &SnakeGame::ChangeBackColor);
-			// 
-			// button7
-			// 
-			this->button7->BackColor = System::Drawing::Color::Silver;
-			this->button7->Location = System::Drawing::Point(183, 126);
-			this->button7->Name = L"button7";
-			this->button7->Size = System::Drawing::Size(25, 25);
-			this->button7->TabIndex = 12;
-			this->button7->UseVisualStyleBackColor = false;
-			this->button7->Click += gcnew System::EventHandler(this, &SnakeGame::ChangeBackColor);
-			// 
-			// button8
-			// 
-			this->button8->BackColor = System::Drawing::SystemColors::Control;
-			this->button8->Location = System::Drawing::Point(160, 126);
-			this->button8->Name = L"button8";
-			this->button8->Size = System::Drawing::Size(25, 25);
-			this->button8->TabIndex = 11;
-			this->button8->UseVisualStyleBackColor = false;
-			this->button8->Click += gcnew System::EventHandler(this, &SnakeGame::ChangeBackColor);
+			this->CurrentBackColor->Click += gcnew System::EventHandler(this, &SnakeGame::ChangeBackColor);
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(36, 50);
+			this->label2->Location = System::Drawing::Point(38, 50);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(73, 13);
 			this->label2->TabIndex = 10;
@@ -786,102 +590,12 @@ namespace SnakeGame {
 			// CurrentSnakeColor
 			// 
 			this->CurrentSnakeColor->BackColor = System::Drawing::Color::LightGreen;
-			this->CurrentSnakeColor->Location = System::Drawing::Point(48, 71);
+			this->CurrentSnakeColor->Location = System::Drawing::Point(50, 71);
 			this->CurrentSnakeColor->Name = L"CurrentSnakeColor";
 			this->CurrentSnakeColor->Size = System::Drawing::Size(49, 49);
 			this->CurrentSnakeColor->TabIndex = 9;
 			this->CurrentSnakeColor->TabStop = false;
-			// 
-			// OrangeRed
-			// 
-			this->OrangeRed->BackColor = System::Drawing::Color::Pink;
-			this->OrangeRed->Location = System::Drawing::Point(96, 150);
-			this->OrangeRed->Name = L"OrangeRed";
-			this->OrangeRed->Size = System::Drawing::Size(25, 25);
-			this->OrangeRed->TabIndex = 8;
-			this->OrangeRed->UseVisualStyleBackColor = false;
-			this->OrangeRed->Click += gcnew System::EventHandler(this, &SnakeGame::ChangeColor);
-			// 
-			// SKDarkViolet
-			// 
-			this->SKDarkViolet->BackColor = System::Drawing::Color::MediumPurple;
-			this->SKDarkViolet->Location = System::Drawing::Point(72, 150);
-			this->SKDarkViolet->Name = L"SKDarkViolet";
-			this->SKDarkViolet->Size = System::Drawing::Size(25, 25);
-			this->SKDarkViolet->TabIndex = 7;
-			this->SKDarkViolet->UseVisualStyleBackColor = false;
-			this->SKDarkViolet->Click += gcnew System::EventHandler(this, &SnakeGame::ChangeColor);
-			// 
-			// SKDodgerBlue
-			// 
-			this->SKDodgerBlue->BackColor = System::Drawing::Color::Khaki;
-			this->SKDodgerBlue->Location = System::Drawing::Point(48, 150);
-			this->SKDodgerBlue->Name = L"SKDodgerBlue";
-			this->SKDodgerBlue->Size = System::Drawing::Size(25, 25);
-			this->SKDodgerBlue->TabIndex = 6;
-			this->SKDodgerBlue->UseVisualStyleBackColor = false;
-			this->SKDodgerBlue->Click += gcnew System::EventHandler(this, &SnakeGame::ChangeColor);
-			// 
-			// SKGreen
-			// 
-			this->SKGreen->BackColor = System::Drawing::Color::MediumAquamarine;
-			this->SKGreen->Location = System::Drawing::Point(25, 150);
-			this->SKGreen->Name = L"SKGreen";
-			this->SKGreen->Size = System::Drawing::Size(25, 25);
-			this->SKGreen->TabIndex = 5;
-			this->SKGreen->UseVisualStyleBackColor = false;
-			this->SKGreen->Click += gcnew System::EventHandler(this, &SnakeGame::ChangeColor);
-			// 
-			// SKRed
-			// 
-			this->SKRed->BackColor = System::Drawing::Color::Salmon;
-			this->SKRed->Location = System::Drawing::Point(96, 126);
-			this->SKRed->Name = L"SKRed";
-			this->SKRed->Size = System::Drawing::Size(25, 25);
-			this->SKRed->TabIndex = 4;
-			this->SKRed->UseVisualStyleBackColor = false;
-			this->SKRed->Click += gcnew System::EventHandler(this, &SnakeGame::ChangeColor);
-			// 
-			// SKSlateBlue
-			// 
-			this->SKSlateBlue->BackColor = System::Drawing::Color::LightBlue;
-			this->SKSlateBlue->ForeColor = System::Drawing::SystemColors::ControlText;
-			this->SKSlateBlue->Location = System::Drawing::Point(72, 126);
-			this->SKSlateBlue->Name = L"SKSlateBlue";
-			this->SKSlateBlue->Size = System::Drawing::Size(25, 25);
-			this->SKSlateBlue->TabIndex = 3;
-			this->SKSlateBlue->UseVisualStyleBackColor = false;
-			this->SKSlateBlue->Click += gcnew System::EventHandler(this, &SnakeGame::ChangeColor);
-			// 
-			// SKAqua
-			// 
-			this->SKAqua->BackColor = System::Drawing::Color::Gold;
-			this->SKAqua->Location = System::Drawing::Point(48, 126);
-			this->SKAqua->Name = L"SKAqua";
-			this->SKAqua->Size = System::Drawing::Size(25, 25);
-			this->SKAqua->TabIndex = 2;
-			this->SKAqua->UseVisualStyleBackColor = false;
-			this->SKAqua->Click += gcnew System::EventHandler(this, &SnakeGame::ChangeColor);
-			// 
-			// SKLightGreen
-			// 
-			this->SKLightGreen->BackColor = System::Drawing::Color::LightGreen;
-			this->SKLightGreen->Location = System::Drawing::Point(25, 126);
-			this->SKLightGreen->Name = L"SKLightGreen";
-			this->SKLightGreen->Size = System::Drawing::Size(25, 25);
-			this->SKLightGreen->TabIndex = 1;
-			this->SKLightGreen->UseVisualStyleBackColor = false;
-			this->SKLightGreen->Click += gcnew System::EventHandler(this, &SnakeGame::ChangeColor);
-			// 
-			// BorderCheck
-			// 
-			this->BorderCheck->AutoSize = true;
-			this->BorderCheck->Location = System::Drawing::Point(97, 286);
-			this->BorderCheck->Name = L"BorderCheck";
-			this->BorderCheck->Size = System::Drawing::Size(235, 17);
-			this->BorderCheck->TabIndex = 41;
-			this->BorderCheck->Text = L"Выключить перемещение через границы";
-			this->BorderCheck->UseVisualStyleBackColor = true;
+			this->CurrentSnakeColor->Click += gcnew System::EventHandler(this, &SnakeGame::ChangeColor);
 			// 
 			// SnakeGame
 			// 

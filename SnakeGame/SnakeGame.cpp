@@ -254,13 +254,7 @@ System::Void SnakeGame::SnakeGame::Update(System::Object^ sender, System::EventA
 	
 }
 
-System::Void SnakeGame::SnakeGame::ChangeColor(System::Object^ sender, System::EventArgs^ e)
-{
-	Button^ Colors = safe_cast<Button^>(sender);
-	CurrentSnakeColor->BackColor = Colors->BackColor;
-	for (int i = 0; i <= score; i++)
-		Snake[i]->BackColor = CurrentSnakeColor->BackColor;
-}
+
 
 System::Void SnakeGame::SnakeGame::Settings(System::Object^ sender, System::EventArgs^ e)
 {
@@ -280,17 +274,25 @@ System::Void SnakeGame::SnakeGame::Settings(System::Object^ sender, System::Even
 	}
 }
 
+System::Void SnakeGame::SnakeGame::ChangeColor(System::Object^ sender, System::EventArgs^ e)
+{
+	colorDialog1->ShowDialog();
+	CurrentSnakeColor->BackColor = colorDialog1->Color;
+	for (int i = 0; i <= score; i++)
+		Snake[i]->BackColor = CurrentSnakeColor->BackColor;
+}
+
 System::Void SnakeGame::SnakeGame::ChangeBackColor(System::Object^ sender, System::EventArgs^ e)
 {
-	Button^ Colors = safe_cast<Button^>(sender);
-	CurrentBackColor->BackColor = Colors->BackColor;
-	BackColor = Colors->BackColor;
+	colorDialog1->ShowDialog();
+	CurrentBackColor->BackColor = colorDialog1->Color;
+	BackColor = CurrentBackColor->BackColor;
 }
 
 System::Void SnakeGame::SnakeGame::ChangeFruitColor(System::Object^ sender, System::EventArgs^ e)
 {
-	Button^ Colors = safe_cast<Button^>(sender);
-	CurrentFruitColor->BackColor = Colors->BackColor;
+	colorDialog1->ShowDialog();
+	CurrentFruitColor->BackColor = colorDialog1->Color;
 	int TempPosx, TempPosy;
 	TempPosx = FruitPos.X;
 	TempPosy = FruitPos.Y;
